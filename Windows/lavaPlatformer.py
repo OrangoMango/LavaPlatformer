@@ -10,7 +10,7 @@ class Game:
 	def __init__(self, st=False, ktc=1):
 		self.ktc = ktc
 		self.version = 12.0
-		self.pathuser = "Khloud" #os.path.abspath(__file__).split("/")[2]
+		self.pathuser = os.path.abspath(__file__).split("/")[2]
 		self.platform_number = 0
 		self.ff_time = False
 		self.golevels = []
