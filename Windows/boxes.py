@@ -5,7 +5,7 @@ import random, time
 class Box: # PRICE 50 Diamonds
 	def __init__(self, shop):
 		self.shop = shop
-		self.gifts = [{"keys":(1,2)}, {"coins":(1,5)}]
+		self.gifts = [{"keys":(1,2)}, {"coins":(5,20)}]
 	def show(self):
 		self.img = PhotoImage(file="../Data/Images/chest.gif", master=self.shop.game.tk)
 		self.id_x = self.shop.game.canvas.create_image(20, 400, anchor="nw",  image=self.img, tags="chest")
