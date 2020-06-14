@@ -565,7 +565,7 @@ class Platform:
 		if not text == "## LEVEL COMPLETED ##":
 			self.center_text = text
 		elif text == "## LEVEL COMPLETED ##" and self.id_number % 10 == 0:
-			self.center_text = "LEVEL COMPLETED"
+			self.center_text = "LEVEL {0} END".format(self.id_number // 10)
 		else:
 			self.center_text = ""#self.id_number
 		self.next = next
