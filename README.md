@@ -1,5 +1,7 @@
 # LavaPlatformer
 
+## Help and instructions: [LavaPlatformer wiki](https://github.com/OrangoMango/LavaPlatformer/wiki/LavaPlatformer-wiki)
+
 ### `lavaPlatformer.py` is the main file but also others must be downloaded<br>
 
 **Welcome on LavaPlatformer!**
