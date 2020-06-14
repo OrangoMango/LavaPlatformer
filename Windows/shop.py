@@ -41,7 +41,7 @@ class Shop:
 		self.game = game
 		self.path = pt
 		self.screen = True
-		self.colors = ["black", "yellow", "light grey", "gray", "light slate gray", "dim gray", "lavender", "mint cream", "white", "antique white", "blanched almond", "peach puff", "navajo white", "lemon chiffon", "blue", "cornflower blue", "slate blue", "light slate blue", "royale blue", "deep sky blue", "turquoise", "dark green", "pale green", "spring green", "dark goldenrod", "orange", "red", "salmon", "pink", "deep pink", "purple", "SeaGreen2", "gold2", "SkyBlue1",   "lightblue"]
+		self.colors = ["black", "yellow", "light grey", "gray", "light slate gray", "dim gray", "lavender", "mint cream", "white", "antique white", "blanched almond", "peach puff", "navajo white", "lemon chiffon", "blue", "cornflower blue", "slate blue", "light slate blue", "royal blue", "deep sky blue", "turquoise", "dark green", "pale green", "spring green", "dark goldenrod", "orange", "red", "salmon", "pink", "deep pink", "purple", "SeaGreen2", "gold2", "SkyBlue1",   "lightblue"]
 		self.prices = list(range(0,(len(self.colors)-1)*5, 5)) + [230]
 		self.current = 0
 		self.box = boxes.Box(self)
