@@ -27,7 +27,7 @@ class Game:
 		self.p = PhotoImage(file="C:/Users/{0}/.lavaPlatformer/Data/showupimage.gif".format(self.pathuser))
 		self.l = Label(self.tk, image=self.p)
 		self.l.pack()
-		self.name = s.askstring("Player name", "Enter player name:") if self.ff_time or st else None
+		self.name = s.askstring("Player name", "Enter player name:") if st else None
 		control = self.check_name()
 		if not control and not os.path.exists("C:/Users/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
 			messagebox.showerror("Error", "Invalid name, You can only use characters from a-z, A-Z, numbers and underscore. Your name can not exist two times")
