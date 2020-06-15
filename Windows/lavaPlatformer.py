@@ -622,7 +622,7 @@ class Lava:
 		self.fall = True
 	def draw(self):
 		if self.fall:
-			self.game.canvas.move(self.id, 0, 4)
+			self.game.canvas.move(self.id, 0, 2)
 		else:
 			self.game.canvas.move(self.id, 0, -7)
 		pos = self.game.canvas.coords(self.id)
