@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter.ttk as t
 import os, json
 
-filept = os.path.abspath(os.listdir()[os.listdir().index("lavaPlatformer.py")])
+filept = os.path.abspath(os.listdir()[os.listdir().index("jobs.py")])
 
 class Job:
 	def __init__(self, shop):
