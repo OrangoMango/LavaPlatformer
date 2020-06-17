@@ -1,2 +1,0 @@
-language = "tkinter"
-run = "python3 Repl/main.py"
