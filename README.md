@@ -1,4 +1,4 @@
-# LavaPlatformer
+# LavaPlatformer [![Run on Repl.it](https://repl.it/badge/github/OrangoMango/LavaPlatformer)](https://repl.it/github/OrangoMango/LavaPlatformer)
 
 ## Help and instructions: [LavaPlatformer wiki](https://github.com/OrangoMango/LavaPlatformer/wiki)
 
