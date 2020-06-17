@@ -293,8 +293,10 @@ class Game:
 			if errortype == "Lava touched you!" or errortype == "You hit the floor too hard":
 				ask = messagebox.askyesno("Respawn", "Do you want to use %s keys to continue?" % ktc)
 				if ask:
-					if self.keys < 1:
+					if self.keys < ktc:
 						messagebox.showerror("Error", "You don't have enough keys")
+						ktc = 1
+						self.ktc = ktc
 					else:
 						self.keys -= ktc
 						self.play_sound("{0}/respawn.mp3".format(self.soundspath))
@@ -308,6 +310,9 @@ class Game:
 				else:
 					ktc = 1
 					self.ktc = ktc
+			else:
+				ktc = 1
+				self.ktc = ktc
 		#print(p.damage)
 		self.maxtime = round(self.time2-self.time1, 2)
 		sql = "INSERT INTO data VALUES(?, ?, ?)"
