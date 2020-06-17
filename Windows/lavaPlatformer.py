@@ -366,7 +366,7 @@ class Profile:
 			return
 	#	for i in os.listdir(self.game.path4job+"../{0}/".format(s)):
 		#	os.remove(i)
-		os.system("del "+self.game.path4job+"../{0}/".format(s))
+		os.system("rmdir /s /q "+self.game.path4job+"../{0}/".format(s))
 	#	self.game.gameover(closing=True)
 		messagebox.showinfo("Info", "Profile deleted", master=self.tk)
 		self.tk.destroy()
