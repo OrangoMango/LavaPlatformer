@@ -6,13 +6,13 @@ import shop, statistics, settings
 
 from soundplayer import SoundPlayer
 
-filept = os.path.abspath(os.listdir()[os.listdir().index("lavaPlatformer.py")])
+filept = os.path.abspath(os.listdir()[os.listdir().index("main.py")])
 
 class Game:
 	def __init__(self, st=False, ktc=1):
 		self.ktc = ktc
 		self.version = 12.0
-		self.pathuser = filept.split('\ '[0])[2]
+		self.pathuser = filept.split('/ '[0])[2]
 		self.platform_number = 0
 		self.ff_time = False
 		self.golevels = []
@@ -21,15 +21,16 @@ class Game:
 		print("Done")
 		self.tk = Tk()
 		self.tk.title("lavaPlatformer start-up")
-	#	self.tk.geometry("500x500+10+200")
+		#self.tk.geometry("500x500+10+200")
 		x = Label(self.tk, text="Welcome on lavaPlatformer!")
 		x.pack()
-		self.p = PhotoImage(file="C:/Users/{0}/.lavaPlatformer/Data/showupimage.gif".format(self.pathuser))
+		self.p = PhotoImage(file="/home/{0}/.lavaPlatformer/Data/showupimage.gif".format(self.pathuser))
 		self.l = Label(self.tk, image=self.p)
 		self.l.pack()
-		self.name = s.askstring("Player name", "Enter player name:") if self.ff_time or st else None
+    #s.askstring("Player name", "Enter player name:")
+		self.name = input("Enter your name: ") if self.ff_time or st else None
 		control = self.check_name()
-		if not control and not os.path.exists("C:/Users/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
+		if not control and not os.path.exists("/home/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
 			messagebox.showerror("Error", "Invalid name, You can only use characters from a-z, A-Z, numbers and underscore. Your name can not exist two times")
 			sys.exit()
 		x.destroy()
@@ -52,7 +53,7 @@ class Game:
 		self.lavadisttxt = self.canvas.create_text(500,0, anchor="ne", text="Lava Distance: {0}".format(self.lava_dist), font="Purisa 14 bold", fill="red")
 		self.diamondstxt = self.canvas.create_text(500,35, anchor="ne", text="Diamonds: {0}".format(self.diamonds), font="Purisa 14 bold", fill="purple")
 		self.keystxt = self.canvas.create_text(500, 70, anchor="ne", text="Keys: {0}".format(self.keys), font="Purisa 14 bold", fill="green")
-		self.shop = shop.Shop(self, pt="C:/Users/{0}/.lavaPlatformer/".format(self.pathuser))
+		self.shop = shop.Shop(self, pt="/home/{0}/.lavaPlatformer/".format(self.pathuser))
 		self.shop.show_button()
 		self.statistics_menu = statistics.Statistics(self)
 		self.statistics_menu.show_button()
@@ -87,25 +88,25 @@ class Game:
 	
 	def ask_sounds(self):
 		sounds = ["chest", "coin", "gameover", "level", "respawn", "start"]
-		if not os.path.isdir("C:/Users/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser)):
-			os.mkdir("C:/Users/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser))
+		if not os.path.isdir("/home/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser)):
+			os.mkdir("/home/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser))
 
 			for sound in sounds:
 				r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/Sounds/{0}.mp3".format(sound))
-				open("C:/Users/{0}/.lavaPlatformer/Data/Sounds/{1}.mp3".format(self.pathuser, sound), "wb").write(r.content)
-		self.soundspath = "C:/Users/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser)
+				open("/home/{0}/.lavaPlatformer/Data/Sounds/{1}.mp3".format(self.pathuser, sound), "wb").write(r.content)
+		self.soundspath = "/home/{0}/.lavaPlatformer/Data/Sounds".format(self.pathuser)
 	
 	def save_user(self):
-		if not os.path.exists("C:/Users/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
-			with open("C:/Users/{0}/.lavaPlatformer/user.txt".format(self.pathuser), "w") as f:
+		if not os.path.exists("/home/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
+			with open("/home/{0}/.lavaPlatformer/user.txt".format(self.pathuser), "w") as f:
 				f.write(self.name)
 		else:
-			with open("C:/Users/{0}/.lavaPlatformer/user.txt".format(self.pathuser)) as f:
+			with open("/home/{0}/.lavaPlatformer/user.txt".format(self.pathuser)) as f:
 				self.name = f.read().rstrip("\n")
 				
 	def check_name(self):
 		try:
-			if self.name in os.listdir("C:/Users/{0}/.lavaPlatformer".format(self.pathuser)):
+			if self.name in os.listdir("/home/{0}/.lavaPlatformer".format(self.pathuser)):
 				return False
 		except:
 			pass
@@ -150,7 +151,7 @@ class Game:
 		if save:
 			self.statistics["times_played"] += 1
 			os.chdir(os.path.abspath(filept+"/.."))
-			os.chdir("C:/Users/{0}/.lavaPlatformer/{1}".format(self.pathuser, self.name))
+			os.chdir("/home/{0}/.lavaPlatformer/{1}".format(self.pathuser, self.name))
 			with open("statistics.json", "w") as f:
 				json.dump(self.statistics, f, indent=4)
 	
@@ -169,7 +170,7 @@ class Game:
 				self.color = data["colors"][data["colors"].index(self.color)]
 		else:
 			os.chdir(os.path.abspath(filept+"/.."))
-			os.chdir("C:/Users/{0}/.lavaPlatformer/{1}".format(self.pathuser, self.name))
+			os.chdir("/home/{0}/.lavaPlatformer/{1}".format(self.pathuser, self.name))
 			with open("colors.json", "w") as colors_f:
 				data = {
 					"colors" : val,
@@ -182,37 +183,37 @@ class Game:
 		user = self.pathuser
 		path = ""#.format(user)
 		#os.chdir(path)
-		if not os.path.isdir("C:/Users/{0}/.lavaPlatformer".format(user)):
-			os.mkdir("C:/Users/{0}/.lavaPlatformer".format(user))
+		if not os.path.isdir("/home/{0}/.lavaPlatformer".format(user)):
+			os.mkdir("/home/{0}/.lavaPlatformer".format(user))
 			self.ff_time = True
-		if not os.path.isdir("C:/Users/{0}/.lavaPlatformer/Data".format(user)):
-			os.mkdir("C:/Users/{0}/.lavaPlatformer/Data".format(user))
+		if not os.path.isdir("/home/{0}/.lavaPlatformer/Data".format(user)):
+			os.mkdir("/home/{0}/.lavaPlatformer/Data".format(user))
 			r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/showupimage.gif", allow_redirects=True)
-			open("C:/Users/{0}/.lavaPlatformer/Data/showupimage.gif".format(user), "wb").write(r.content)
-		#	os.system("cp "+"Data/showupimage.gif "+" C:/Users/{0}/.lavaPlatformer/Data/showupimage.gif".format(user))
-		if not os.path.isdir("C:/Users/{0}/.lavaPlatformer/Data/Images".format(user)):
-			os.mkdir("C:/Users/{0}/.lavaPlatformer/Data/Images".format(user))
+			open("/home/{0}/.lavaPlatformer/Data/showupimage.gif".format(user), "wb").write(r.content)
+		#	os.system("cp "+"Data/showupimage.gif "+" /home/{0}/.lavaPlatformer/Data/showupimage.gif".format(user))
+		if not os.path.isdir("/home/{0}/.lavaPlatformer/Data/Images".format(user)):
+			os.mkdir("/home/{0}/.lavaPlatformer/Data/Images".format(user))
 			r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/Images/chest.gif")
-			open("C:/Users/{0}/.lavaPlatformer/Data/Images/chest.gif".format(user), "wb").write(r.content)
+			open("/home/{0}/.lavaPlatformer/Data/Images/chest.gif".format(user), "wb").write(r.content)
 			r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/Images/jobs.gif")
-			open("C:/Users/{0}/.lavaPlatformer/Data/Images/jobs.gif".format(user), "wb").write(r.content)
+			open("/home/{0}/.lavaPlatformer/Data/Images/jobs.gif".format(user), "wb").write(r.content)
 			r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/Images/settings.gif")
-			open("C:/Users/{0}/.lavaPlatformer/Data/Images/settings.gif".format(user), "wb").write(r.content)
+			open("/home/{0}/.lavaPlatformer/Data/Images/settings.gif".format(user), "wb").write(r.content)
 			r = requests.get("https://github.com/OrangoMango/LavaPlatformer/raw/master/Data/Images/shop.gif")
-			open("C:/Users/{0}/.lavaPlatformer/Data/Images/shop.gif".format(user), "wb").write(r.content)
+			open("/home/{0}/.lavaPlatformer/Data/Images/shop.gif".format(user), "wb").write(r.content)
 	
 	def setup_directory(self):
 		user = self.pathuser
 		path = ""#.format(user)
 		#os.chdir(path)
 		self.save_user()
-		if not os.path.exists(path+"C:/Users/{0}/.lavaPlatformer/".format(user)+self.name):
-			os.mkdir(path+"C:/Users/{0}/.lavaPlatformer/".format(user)+self.name)
+		if not os.path.exists(path+"/home/{0}/.lavaPlatformer/".format(user)+self.name):
+			os.mkdir(path+"/home/{0}/.lavaPlatformer/".format(user)+self.name)
 			print("Downloading sounds...")
 			self.ask_sounds()
 			print("Done")
-		self.path4job = path+"C:/Users/{0}/.lavaPlatformer/{1}/".format(user, self.name)
-		os.chdir(path+"C:/Users/{0}/.lavaPlatformer/{1}/".format(user, self.name))
+		self.path4job = path+"/home/{0}/.lavaPlatformer/{1}/".format(user, self.name)
+		os.chdir(path+"/home/{0}/.lavaPlatformer/{1}/".format(user, self.name))
 		if not os.path.exists("../path.txt"):
 			with open("../path.txt", "w") as f:
 				f.write(self.soundspath)
