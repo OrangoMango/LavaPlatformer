@@ -1,6 +1,8 @@
-import time, playsound, os
+import os
 
 os.system("pip3 install playsound")
+
+import time, playsound
 class SoundPlayer:
 	def __init__(self, path, game):
 		self.path = path
