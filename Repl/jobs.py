@@ -1,8 +1,8 @@
 from tkinter import *
 import tkinter.ttk as t
 import os, json
-
-filept = os.path.abspath(os.listdir()[os.listdir().index("jobs.py")])
+os.chdir("/home/runner/LavaPlatformer/Repl")
+filept = os.path.abspath(os.listdir()[os.listdir().index("main.py")])
 
 class Job:
 	def __init__(self, shop):
