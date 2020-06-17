@@ -3,7 +3,7 @@ from tkinter import messagebox
 import tkinter.simpledialog as s
 import time, sys, random, os, sqlite3, json, threading, requests
 import shop, statistics, settings
-
+os.chdir("/home/runner/LavaPlatformer/Repl")
 from soundplayer import SoundPlayer
 
 filept = os.path.abspath(os.listdir()[os.listdir().index("main.py")])
@@ -21,7 +21,7 @@ class Game:
 		print("Done")
 		self.tk = Tk()
 		self.tk.title("lavaPlatformer start-up")
-		#self.tk.geometry("500x500+10+200")
+		self.tk.geometry("500x500+10+90")
 		x = Label(self.tk, text="Welcome on lavaPlatformer!")
 		x.pack()
 		self.p = PhotoImage(file="/home/{0}/.lavaPlatformer/Data/showupimage.gif".format(self.pathuser))
