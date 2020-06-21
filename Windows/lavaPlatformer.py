@@ -364,9 +364,9 @@ class Profile:
 		if s == self.getCurrentUser():
 			messagebox.showerror("Error", "Could not delete current profile", master=self.tk)
 			return
-	#	for i in os.listdir(self.game.path4job+"../{0}/".format(s)):
-		#	os.remove(i)
-		os.system("rmdir /s /q "+self.game.path4job+"../{0}/".format(s))
+		for i in os.listdir(self.game.path4job+"../{0}/".format(s)):
+			os.remove(self.game.path4job+"../{0}/".format(s)+i)
+		os.rmdir(self.game.path4job+"../{0}".format(s))
 	#	self.game.gameover(closing=True)
 		messagebox.showinfo("Info", "Profile deleted", master=self.tk)
 		self.tk.destroy()
