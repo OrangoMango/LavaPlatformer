@@ -6,7 +6,7 @@ import shop, statistics, settings
 
 from soundplayer import SoundPlayer
 
-filept = os.path.abspath(os.listdir()[os.listdir().index("lavaPlatformer.py")])
+filept = os.path.abspath(os.listdir()[0])
 
 class Game:
 	def __init__(self, st=False, ktc=1):
@@ -19,7 +19,7 @@ class Game:
 		print("Downloading image content...")
 		self.set_asset()
 		print("Done")
-		self.tk = Tk()
+		self.tk = Tk(className="lavaplatformer")
 		self.tk.title("lavaPlatformer start-up")
 	#	self.tk.geometry("500x500+10+200")
 		x = Label(self.tk, text="Welcome on lavaPlatformer!")
