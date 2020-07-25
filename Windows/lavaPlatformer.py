@@ -12,7 +12,7 @@ class Game:
 	def __init__(self, st=False, ktc=1):
 		self.ktc = ktc
 		self.version = 13.0
-		self.pathuser = filept.split('1 '[0])[2]
+		self.pathuser = filept.split('\ '[0])[2]
 		self.platform_number = 0
 		self.ff_time = False
 		self.golevels = []
