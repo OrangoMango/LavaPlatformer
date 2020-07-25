@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter.simpledialog as s
-import time, sys, random, os, sqlite3, json, threading, requests
+import time, sys, random, os, sqlite3, json, threading, requests, shutil
 import shop, statistics, settings
 
 from soundplayer import SoundPlayer
@@ -11,7 +11,7 @@ filept = os.path.abspath(os.listdir()[os.listdir().index("lavaPlatformer.py")])
 class Game:
 	def __init__(self, st=False, ktc=1):
 		self.ktc = ktc
-		self.version = 12.0
+		self.version = 13.0
 		self.pathuser = filept.split('/ '[0])[2]
 		self.platform_number = 0
 		self.ff_time = False
@@ -31,6 +31,7 @@ class Game:
 		control = self.check_name()
 		if not control and not os.path.exists("/home/{0}/.lavaPlatformer/user.txt".format(self.pathuser)):
 			messagebox.showerror("Error", "Invalid name, You can only use characters from a-z, A-Z, numbers and underscore. Your name can not exist two times")
+			shutil.rmtree("/home/{0}/.lavaPlatformer".format(self.pathuser))
 			sys.exit()
 		x.destroy()
 		self.l.destroy()
@@ -627,7 +628,7 @@ class Lava:
 		self.fall = True
 	def draw(self):
 		if self.fall:
-			self.game.canvas.move(self.id, 0, 3)
+			self.game.canvas.move(self.id, 0, 2)
 		else:
 			self.game.canvas.move(self.id, 0, -7)
 		pos = self.game.canvas.coords(self.id)
