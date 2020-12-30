@@ -1,8 +1,10 @@
 # LavaPlatformer
 
+Watch the video at https://youtu.be/pXuPxhRoxko!, Subscribe, turn on the bell and put like!
+
 ## Help and instructions: [LavaPlatformer wiki](https://github.com/OrangoMango/LavaPlatformer/wiki)
 
-### Please run the Windows version in `C:\Users\<Username>\Directory\`
+### Run the Windows version in `C:\Users\<Username>\Directory\`
 
 ### `lavaPlatformer.py` is the main file but also others must be downloaded<br>
 

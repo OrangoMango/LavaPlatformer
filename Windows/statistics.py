@@ -14,7 +14,7 @@ class Statistics:
 			pass
 	def show_button(self):
 		self.id_out = self.game.canvas.create_rectangle(320, 430, 480, 480, fill="green", tags="statistics_button")
-		self.id_in = self.game.canvas.create_text(350, 440, anchor="nw", text="STATISTICS", tags="statistics_button", font="Calibri 17 bold")
+		self.id_in = self.game.canvas.create_text(330, 440, anchor="nw", text="STATISTICS", tags="statistics_button", font="Calibri 15 bold")
 		self.id = "statistics_button"
 		self.game.canvas.tag_bind(self.id, "<Button-1>", self.onclick)
 	def onclick(self, event):

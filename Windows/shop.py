@@ -73,7 +73,7 @@ class Shop:
 		self.t_2 = next = self.game.canvas.create_text(350, 150, text=">", font="Calibri 40 bold")
 		
 		self.selection = self.game.canvas.create_rectangle(380, 10, 480, 45, fill="orange", tags="settingsbutton")
-		self.selectiontxt1 = self.game.canvas.create_text(392, 15, anchor="nw", text="SELECTION", font="Calibri 12 bold", tags="settingsbutton")
+		self.selectiontxt1 = self.game.canvas.create_text(392, 15, anchor="nw", text="SELECTION", font="Calibri 9 bold", tags="settingsbutton")
 		self.selectiontxt = "settingsbutton"
 		self.back = self.game.canvas.create_rectangle(20, 10, 120, 50, fill="red", tags="backbutton")
 		self.backtxt1 = self.game.canvas.create_text(25,15, anchor="nw", text="BACK", font="Calibri 17 bold", tags="backbutton")
